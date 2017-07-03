@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>1018156739258-328f5rpdp3ppmkd74iec4e25r9ama8me.apps.googleusercontent.com</string>
+	<string>893631533961-qe12gu85rdfgacfbfrtbulqkq3b5j0ko.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1018156739258-328f5rpdp3ppmkd74iec4e25r9ama8me</string>
+	<string>com.googleusercontent.apps.893631533961-qe12gu85rdfgacfbfrtbulqkq3b5j0ko</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAidNY4Dq8HRRNui11dkbajSNOrc5-HSwk</string>
+	<string>AIzaSyBkwm-kindl6j5dqg84E5GCR91Fg281Sxk</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1018156739258</string>
+	<string>893631533961</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.happydiabetic</string>
+	<string>com.soker.webtag</string>
 	<key>PROJECT_ID</key>
-	<string>happydiabetic-81d83</string>
+	<string>soker-f37cd</string>
 	<key>STORAGE_BUCKET</key>
-	<string>happydiabetic-81d83.appspot.com</string>
+	<string>soker-f37cd.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1018156739258:ios:10802937eb3bb1c3</string>
+	<string>1:893631533961:ios:6f0031e5d14633e3</string>
 	<key>DATABASE_URL</key>
-	<string>https://happydiabetic-81d83.firebaseio.com</string>
+	<string>https://soker-f37cd.firebaseio.com</string>
 </dict>
 </plist>
