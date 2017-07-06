@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "893631533961",
-    "firebase_url": "https://soker-f37cd.firebaseio.com",
-    "project_id": "soker-f37cd",
-    "storage_bucket": "soker-f37cd.appspot.com"
+    "project_number": "891204723169",
+    "firebase_url": "https://template-507f4.firebaseio.com",
+    "project_id": "template-507f4",
+    "storage_bucket": "template-507f4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:893631533961:android:6f0031e5d14633e3",
+        "mobilesdk_app_id": "1:891204723169:android:0e9819430b1ebccf",
         "android_client_info": {
-          "package_name": "com.soker.webtag"
+          "package_name": "au.com.appp.webtag"
         }
       },
       "oauth_client": [
         {
-          "client_id": "893631533961-gmurmubpkl4282132c25e6oqhrrigdr4.apps.googleusercontent.com",
+          "client_id": "891204723169-6933l3r0248733maga7bu2ed607a0hcp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.soker.webtag",
-            "certificate_hash": "b8b57018f61f9d06ebf3c0e8f2114bbc606d5dfc"
+            "package_name": "au.com.appp.webtag",
+            "certificate_hash": "5e175cc0e66f29ac59cab1e2b31c7c29c140ddde"
           }
         },
         {
-          "client_id": "893631533961-5pl077dct72l2iqeepik51ujsekuplpv.apps.googleusercontent.com",
+          "client_id": "891204723169-aankguno9sfaf7pij0a5fog1rqqbugn1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAec-XGeZr6Qa3ntU6I3_ejsu-5r31kDE4"
+          "current_key": "AIzaSyCpdcV0teJu1VihPCtuysswjf8QbZkKirA"
         }
       ],
       "services": {
@@ -40,7 +40,14 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "893631533961-5pl077dct72l2iqeepik51ujsekuplpv.apps.googleusercontent.com",
+              "client_id": "891204723169-hmeajc7s7dccqhbhtu1mkd26vlor7b05.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "au.com.appp.webtag"
+              }
+            },
+            {
+              "client_id": "891204723169-aankguno9sfaf7pij0a5fog1rqqbugn1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
