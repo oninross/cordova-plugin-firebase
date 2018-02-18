@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "893631533961",
-    "firebase_url": "https://soker-f37cd.firebaseio.com",
-    "project_id": "soker-f37cd",
-    "storage_bucket": "soker-f37cd.appspot.com"
+    "project_number": "888579919684",
+    "firebase_url": "https://thevox-2e7a3.firebaseio.com",
+    "project_id": "thevox-2e7a3",
+    "storage_bucket": "thevox-2e7a3.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:893631533961:android:6f0031e5d14633e3",
+        "mobilesdk_app_id": "1:888579919684:android:a1e6ab693b29f45b",
         "android_client_info": {
-          "package_name": "com.soker.webtag"
+          "package_name": "au.com.app.webtag.thevox"
         }
       },
       "oauth_client": [
         {
-          "client_id": "893631533961-gmurmubpkl4282132c25e6oqhrrigdr4.apps.googleusercontent.com",
+          "client_id": "888579919684-nlrjsbemdde70dhcr7p512qjlnv5eo6o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.soker.webtag",
-            "certificate_hash": "b8b57018f61f9d06ebf3c0e8f2114bbc606d5dfc"
+            "package_name": "au.com.app.webtag.thevox",
+            "certificate_hash": "81c90c9a6485b1fa220f5f2662d75af1391d1348"
           }
         },
         {
-          "client_id": "893631533961-5pl077dct72l2iqeepik51ujsekuplpv.apps.googleusercontent.com",
+          "client_id": "888579919684-bfl15l8a1uruulu6bdq30odled7ipnp0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAec-XGeZr6Qa3ntU6I3_ejsu-5r31kDE4"
+          "current_key": "AIzaSyDSiEWIleDVFPToPtGnBjZ4sy_6gO4cHJY"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "893631533961-5pl077dct72l2iqeepik51ujsekuplpv.apps.googleusercontent.com",
+              "client_id": "888579919684-bfl15l8a1uruulu6bdq30odled7ipnp0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

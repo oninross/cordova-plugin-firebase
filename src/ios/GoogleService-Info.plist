@@ -7,34 +7,34 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>893631533961-qe12gu85rdfgacfbfrtbulqkq3b5j0ko.apps.googleusercontent.com</string>
+	<string>888579919684-q1hn8n1cin9srh0uu9cp4d3o7gas8rp4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.893631533961-qe12gu85rdfgacfbfrtbulqkq3b5j0ko</string>
+	<string>com.googleusercontent.apps.888579919684-q1hn8n1cin9srh0uu9cp4d3o7gas8rp4</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBkwm-kindl6j5dqg84E5GCR91Fg281Sxk</string>
+	<string>AIzaSyDanXpfTNRGb7gijQQHsECBfaLsOp-wpjE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>893631533961</string>
+	<string>888579919684</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.soker.webtag</string>
+	<string>au.com.app.webtag.thevox</string>
 	<key>PROJECT_ID</key>
-	<string>soker-f37cd</string>
+	<string>thevox-2e7a3</string>
 	<key>STORAGE_BUCKET</key>
-	<string>soker-f37cd.appspot.com</string>
+	<string>thevox-2e7a3.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:893631533961:ios:6f0031e5d14633e3</string>
+	<string>1:888579919684:ios:a1e6ab693b29f45b</string>
 	<key>DATABASE_URL</key>
-	<string>https://soker-f37cd.firebaseio.com</string>
+	<string>https://thevox-2e7a3.firebaseio.com</string>
 </dict>
 </plist>
