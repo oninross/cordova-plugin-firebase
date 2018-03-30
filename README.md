@@ -1,17 +1,34 @@
+[![Build Status](https://travis-ci.org/arnesson/cordova-plugin-firebase.svg?branch=master)](https://travis-ci.org/arnesson/cordova-plugin-firebase)
+
 # cordova-plugin-firebase
 This plugin brings push notifications, analytics, event tracking, crash reporting and more from Google Firebase to your Cordova project!
 Android and iOS supported.
 
+Donations are welcome and will go towards further development of this project. Use the addresses below to donate.
+
+```
+BTC: 1JuXhHMCPHXT2fDfSRUTef9TpE2D67sc9f
+ETH: 0x74B5eDEce465fDd360b3b03C6984784140ac742e
+BCH: qzu5ffphkcgajn7kd7d90etq82maylz34uqg4uj5jf
+LTC: LKnFugRfczVH7qfBrmhzZDknhqxCzz6wJB
+XMR: 43ZMMEh5x4miZLMZF3W3faAL5Y44fPBXrFWBVXYePBjwXCvxLuo84Cof8ufXgb4sZLEpSDE3eKr5X7jNPfd4kppr8oMX9uM
+Paypal: https://paypal.me/arnesson
+```
+
+Thank you for your support!
+
 ## Installation
 See npm package for versions - https://www.npmjs.com/package/cordova-plugin-firebase
 
+Great installation and setup guide by Medium.com - [https://medium.com/@felipepucinelli/how-to-add-push...](https://medium.com/@felipepucinelli/how-to-add-push-notifications-in-your-cordova-application-using-firebase-69fac067e821)
+
 Install the plugin by adding it your project's config.xml:
 ```
-<plugin name="cordova-plugin-firebase" spec="0.1.22" />
+<plugin name="cordova-plugin-firebase" spec="0.1.25" />
 ```
 or by running:
 ```
-cordova plugin add cordova-plugin-firebase@0.1.22 --save
+cordova plugin add cordova-plugin-firebase@0.1.25 --save
 ```
 Download your Firebase configuration files, GoogleService-Info.plist for ios and google-services.json for android, and place them in the root folder of your cordova project:
 
@@ -31,6 +48,23 @@ See https://support.google.com/firebase/answer/7015592 for details how to downlo
 This plugin uses a hook (after prepare) that copies the configuration files to the right place, namely platforms/ios/\<My Project\>/Resources for ios and platforms/android for android.
 
 **Note that the Firebase SDK requires the configuration files to be present and valid, otherwise your app will crash on boot or Firebase features won't work.**
+
+### Notes about PhoneGap Build
+
+Hooks does not work with PhoneGap Build. This means you will have to manually make sure the configuration files are included. One way to do that is to make a private fork of this plugin and replace the placeholder config files (see src/ios and src/android) with your actual ones, as well as hard coding your app id and api key in plugin.xml.
+
+
+
+## Google Tag Manager
+### Android
+Download your container-config json file from Tag Manager and add a resource-file node in your config.xml.
+```
+....
+<platform name="android">
+    <content src="index.html" />
+    <resource-file src="GTM-5MFXXXX.json" target="assets/containers/GTM-5MFXXXX.json" />
+    ...
+```
 
 ## Changing Notification Icon
 The plugin will use notification_icon from drawable resources if it exists, otherwise the default app icon will is used.
@@ -81,11 +115,6 @@ On Android Lollipop and above you can also set the accent color for the notifica
     <color name="accent">#FF00FFFF</color>
 </resources>
 ```
-
-
-### Notes about PhoneGap Build
-
-Hooks does not work with PhoneGap Build. This means you will have to manually make sure the configuration files are included. One way to do that is to make a private fork of this plugin and replace the placeholder config files (see src/ios and src/android) with your actual ones, as well as hard coding your app id and api key in plugin.xml.
 
 
 ## Methods
@@ -224,13 +253,49 @@ Set a user property for use in Analytics:
 window.FirebasePlugin.setUserProperty("name", "value");
 ```
 
+### verifyPhoneNumber (Android only)
+
+Request a verificationId and send a SMS with a verificationCode.
+Use them to construct a credenial to sign in the user (in your app).
+https://firebase.google.com/docs/auth/android/phone-auth
+https://firebase.google.com/docs/reference/js/firebase.auth.Auth#signInWithCredential
+
+NOTE: To use this auth you need to configure your app SHA hash in the android app configuration on firebase console.
+See https://developers.google.com/android/guides/client-auth to know how to get SHA app hash.
+
+NOTE: This will only works on physical devices.
+
+```
+window.FirebasePlugin.verifyPhoneNumber(number, timeOutDuration, function(credential) {
+    console.log(credential);
+
+    // ask user to input verificationCode:
+    var code = inputField.value.toString();
+
+    var verificationId = credential.verificationId;
+
+    var signInCredential = firebase.auth.PhoneAuthProvider.credential(verificationId, code);
+    firebase.auth().signInWithCredential(signInCredential);
+}, function(error) {
+    console.error(error);
+});
+```
+
 ### fetch
 
 Fetch Remote Config parameter values for your app:
 ```
-window.FirebasePlugin.fetch();
+window.FirebasePlugin.fetch(function () {
+    // success callback
+}, function () {
+    // error callback
+});
 // or, specify the cacheExpirationSeconds
-window.FirebasePlugin.fetch(600);
+window.FirebasePlugin.fetch(600, function () {
+    // success callback
+}, function () {
+    // error callback
+});
 ```
 
 ### activateFetched
@@ -296,6 +361,10 @@ window.FirebasePlugin.getInfo(function(info) {
     // the timestamp (milliseconds since epoch) of the last successful fetch
     console.log(info.fetchTimeMillis);
     // the status of the most recent fetch attempt (int)
+    // 0 = Config has never been fetched.
+    // 1 = Config fetch succeeded.
+    // 2 = Config fetch failed.
+    // 3 = Config fetch was throttled.
     console.log(info.lastFetchStatus);
 }, function(error) {
     console.error(error);
@@ -333,4 +402,81 @@ var defaults = {
 window.FirebasePlugin.setDefaults(defaults);
 // or, specify a namespace
 window.FirebasePlugin.setDefaults(defaults, "namespace");
+```
+
+### startTrace
+
+Start a trace.
+
+```
+window.FirebasePlugin.startTrace("test trace", success, error);
+```
+
+### incrementCounter
+
+To count the performance-related events that occur in your app (such as cache hits or retries), add a line of code similar to the following whenever the event occurs, using a string other than retry to name that event if you are counting a different type of event:
+
+```
+window.FirebasePlugin.incrementCounter("test trace", "retry", success, error);
+```
+
+### stopTrace
+
+Stop the trace
+
+```
+window.FirebasePlugin.stopTrace("test trace");
+```
+
+### setAnalyticsCollectionEnabled
+
+Enable/disable analytics collection
+
+```
+window.FirebasePlugin.setAnalyticsCollectionEnabled(true); // Enables analytics collection
+
+window.FirebasePlugin.setAnalyticsCollectionEnabled(false); // Disables analytics collection
+```
+
+### Phone Authentication
+**BASED ON THE CONTRIBUTIONS OF**
+IOS
+https://github.com/silverio/cordova-plugin-firebase
+
+ANDROID
+https://github.com/apptum/cordova-plugin-firebase
+
+**((((IOS))): SETUP YOUR PUSH NOTIFICATIONS FIRST, AND VERIFY THAT THEY ARE ARRIVING TO YOUR PHYSICAL DEVICE BEFORE YOU TEST THIS METHOD. USE THE APNS AUTH KEY TO GENERATE THE .P8 FILE AND UPLOAD IT TO FIREBASE.
+WHEN YOU CALL THIS METHOD, FCM SENDS A SILENT PUSH TO THE DEVICE TO VERIFY IT.**
+
+This method sends an SMS to the user with the SMS_code and gets the verification id you need to continue the sign in process, with the Firebase JS SDK.
+
+```
+window.FirebasePlugin.getVerificationID("+573123456789",function(id) {
+    console.log("verificationID: "+id);
+}, function(error) {             
+    console.error(error);
+});
+```
+
+Using Ionic2?
+```
+(<any>window).FirebasePlugin.getVerificationID("+573123456789", id => {
+    console.log("verificationID: " + id);
+    this.verificationId = id;
+}, error => {
+    console.log("error: " + error);
+});
+```
+Get the intermediate AuthCredential object
+```
+var credential = firebase.auth.PhoneAuthProvider.credential(verificationId, SMS_code);
+```
+Then, you can sign in the user with the credential:
+```
+firebase.auth().signInWithCredential(credential);
+```
+Or link to an account
+```
+firebase.auth().currentUser.linkWithCredential(credential)
 ```
