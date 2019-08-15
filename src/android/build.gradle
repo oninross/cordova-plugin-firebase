@@ -1,28 +1,14 @@
+// Fabric Cordova Plugin - Start Fabric Build Tools 
 buildscript {
     repositories {
-        jcenter()
         maven { url 'https://maven.fabric.io/public' }
+        maven { url 'https://maven.google.com' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:+'
-        classpath 'com.google.gms:google-services:4.1.0'
-        classpath 'io.fabric.tools:gradle:1.+'
-    }
-}
-repositories {
-    mavenCentral()
-    maven {
-        url "https://maven.google.com"
+        classpath 'io.fabric.tools:gradle:1.25.4'
+        classpath 'com.google.gms:google-services:+'
     }
 }
 
-dependencies {
-    compile 'me.leolin:ShortcutBadger:1.1.4@aar'
-    compile 'com.google.firebase:firebase-auth:+'
-    compile('com.crashlytics.sdk.android:crashlytics:2.9.1@aar') {
-        transitive = true
-    }
-}
-
-apply plugin: com.google.gms.googleservices.GoogleServicesPlugin
-apply plugin: com.crashlytics.tools.gradle.CrashlyticsPlugin
+apply plugin: 'io.fabric'
+apply plugin: 'com.google.gms.google-services'
